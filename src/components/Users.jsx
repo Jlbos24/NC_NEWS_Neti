@@ -12,6 +12,7 @@ class Users extends Component {
     newUsername: "",
     newName: "",
     newAvatar: "",
+    created: false,
     isLoading: true,
     error: null
   };
@@ -40,10 +41,10 @@ class Users extends Component {
     const { value } = event.target;
     this.setState({ currentUser: value, set: true });
   };
-  handleSignIn = event => {
+  handleSignIn = () => {
     this.props.setUser(this.state.currentUser, this.state.set);
   };
-  handleSignOut = event => {
+  handleSignOut = () => {
     this.setState({ currentUser: "", set: false });
     this.props.setUser(this.state.currentUser, this.state.set);
   };
@@ -56,7 +57,12 @@ class Users extends Component {
     const { newUsername, newName, newAvatar } = this.state;
     api.postUser(newUsername, newName, newAvatar).then(user => {
       this.addUser(user);
-      this.setState({ newUsername: "", newName: "", newAvatar: "" });
+      this.setState({
+        newUsername: "",
+        newName: "",
+        newAvatar: "",
+        created: true
+      });
     });
   };
   render() {
@@ -81,7 +87,7 @@ class Users extends Component {
             </select>
           </section>
           <br />
-          <Link to={`/${this.state.currentUser}/articles`}>
+          <Link to={"/articles"}>
             <button
               disabled={this.state.set === false}
               className={"sign-io-btn"}
@@ -100,7 +106,11 @@ class Users extends Component {
           </button>
           <form onSubmit={this.handleSubmit}>
             <h3>Sign Up</h3>
-            <p>Please fill in this form to create a user.</p>
+            <p>
+              {this.state.created
+                ? this.state.newUsername + "Created!!!"
+                : "Please fill in this form to create a user."}
+            </p>
             <label htmlFor="newUsername">
               Username:
               <br />

@@ -14,28 +14,26 @@ class ArticleVotes extends Component {
   render() {
     const { newvotes } = this.state;
     return (
-      <>
-        <section className={"artvote"}>
-          <label> Votes {this.props.votes + newvotes} </label>
-          <br />
-          <button
-            disabled={newvotes > 0}
-            onClick={event => {
-              this.updateVotes(1);
-            }}
-          >
-            Agree
-          </button>
-          <button
-            disabled={newvotes < 0}
-            onClick={event => {
-              this.updateVotes(-1);
-            }}
-          >
-            Disagree
-          </button>
-        </section>
-      </>
+      <section className={"artvote"}>
+        <label> Votes {this.props.votes + newvotes} </label>
+        <br />
+        <button
+          disabled={newvotes > 0}
+          onClick={event => {
+            this.updateVotes(1);
+          }}
+        >
+          Agree
+        </button>
+        <button
+          disabled={newvotes < 0}
+          onClick={event => {
+            this.updateVotes(-1);
+          }}
+        >
+          Disagree
+        </button>
+      </section>
     );
   }
 }

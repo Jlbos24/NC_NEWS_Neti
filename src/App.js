@@ -28,20 +28,21 @@ class App extends Component {
         <Router className="routermain">
           <Users path="/" setUser={this.setUser} />
           <AllArticles
-            path="/:currentUser/articles"
+            path="/articles"
             currentUser={this.state.currentUser}
             set={this.state.set}
           />
           <AllArticles
-            path="/:currentUser/articles/topic/:slug"
+            path="/articles/topic/:slug"
             currentUser={this.state.currentUser}
             set={this.state.set}
           />
           <BodyCard
-            path="/:currentUser/articles/:article_id/*"
+            path="/articles/:article_id/*"
             currentUser={this.state.currentUser}
             set={this.state.set}
           />
+
           <ErrorHandling default />
         </Router>
       </div>

@@ -3,7 +3,7 @@ import Loader from "./Loader";
 import ArticleCard from "./ArticleCard.jsx";
 import * as api from "../Utils/api";
 import "../App.css";
-import SortArticles from "./SortArticles";
+import Toolbar from "./Toolbar";
 import ErrorHandling from "./ErrorHandling";
 import Users from "./Users";
 
@@ -37,26 +37,30 @@ class AllArticles extends Component {
     }
   }
 
+  delArticle = (article_id, sort_by, order) => {
+    api.deleteArticle(article_id).then(() => {
+      this.getArticles(sort_by, order);
+    });
+  };
+
   render() {
     if (this.state.isLoading) return <Loader />;
     if (this.props.set === false) return <Users />;
     if (this.state.error) return <ErrorHandling {...this.state.error} />;
     return (
-      <>
-        <br />
-        <main className={"artmain"}>
-          <SortArticles getArticles={this.getArticles} />
-          {this.state.articles.map(article => {
-            return (
-              <ArticleCard
-                key={article.article_id}
-                {...article}
-                currentUser={this.props.currentUser}
-              />
-            );
-          })}
-        </main>
-      </>
+      <main className={"artmain"}>
+        <Toolbar getArticles={this.getArticles} />
+        {this.state.articles.map(article => {
+          return (
+            <ArticleCard
+              key={article.article_id}
+              {...article}
+              currentUser={this.props.currentUser}
+              delArticle={this.delArticle}
+            />
+          );
+        })}
+      </main>
     );
   }
 }

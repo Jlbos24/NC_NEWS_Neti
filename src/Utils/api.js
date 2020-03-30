@@ -92,7 +92,24 @@ const postUser = (username, name, avatar_url) => {
       return data.user;
     });
 };
+const deleteArticle = article_id => {
+  return axios.delete(
+    `https://jlb-news-app.herokuapp.com/api/articles/${article_id}`
+  );
+};
 
+const postTopic = (slug, description) => {
+  console.log(slug, "slug", description, "description", "In API");
+  return axios
+    .post(`https://jlb-news-app.herokuapp.com/api/topics/`, {
+      slug,
+      description
+    })
+    .then(({ data }) => {
+      console.log("data");
+      return data.topic;
+    });
+};
 module.exports = {
   fetchTopics,
   fetchArticles,
@@ -103,5 +120,7 @@ module.exports = {
   patchCommentVotes,
   patchArticlesVotes,
   fetchUsers,
-  postUser
+  postUser,
+  deleteArticle,
+  postTopic
 };

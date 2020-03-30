@@ -19,6 +19,7 @@ class CommentBox extends Component {
       )
       .then(comment => {
         this.props.addComment(comment);
+        this.props.updateCommentCount(1);
       });
     this.setState({ body: "" });
   };

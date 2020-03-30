@@ -6,13 +6,13 @@ import Comments from "./Comments";
 import ArticleVotes from "./ArticleVotes";
 import ErrorHandling from "./ErrorHandling";
 import Users from "./Users";
-
 import "../App.css";
 
 class BodyCard extends Component {
   state = {
     article: {},
-    isLoading: true
+    isLoading: true,
+    count: 0
   };
 
   getArticleByID = () => {
@@ -30,18 +30,13 @@ class BodyCard extends Component {
   componentDidMount() {
     this.getArticleByID();
   }
-  // Updating comments  - will work for delete and post comment
-  updateCommentCount = num => {
-    const { comment_count } = this.state.article;
-    console.log(num, " num");
-    console.log(comment_count, " cooment _ count");
-    let newCount = comment_count + num;
-    console.log(newCount, "dd");
+
+  updateCommentCount = count => {
     this.setState(currentState => {
-      return { comment_count: currentState.comment_count + num };
+      return { count: currentState.count + count };
     });
-    console.log(comment_count, " after this setstate");
   };
+
   render() {
     if (this.state.isLoading) return <Loader />;
     if (this.props.set === false) return <Users />;
@@ -67,10 +62,8 @@ class BodyCard extends Component {
             {date}
             <br />
             <br />
-            <Link
-              to={`/${this.props.currentUser}/articles/${article_id}/comments`}
-            >
-              comments({comment_count})
+            <Link to={`/articles/${article_id}/comments`}>
+              comments({Number(comment_count) + this.state.count})
             </Link>
             <br />
             <ArticleVotes {...this.state.article} />

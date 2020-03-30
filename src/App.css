@@ -15,7 +15,12 @@ body {
   grid-template-rows: auto auto;
   grid-template-columns: auto auto;
 }
-
+.loader {
+  text-align: center;
+  color: beige;
+  font-style: oblique;
+  font-weight: bolder;
+}
 .errorhandlemain {
   color: red;
   text-align: center;
@@ -84,6 +89,42 @@ body {
   padding: 16px 16px;
   background-color: beige;
 }
+.addtopicform {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: gold;
+  border-width: 3px;
+  width: 400px;
+  height: 500px;
+}
+.addtopicform h2 {
+  font-weight: bold;
+  font-style: oblique;
+  font-size: large;
+  color: gold;
+}
+
+.addtopicform label {
+  display: flex;
+  justify-content: center;
+  color: gold;
+  font-style: oblique;
+  font-weight: bold;
+  padding: 5px 5px 5px 5px;
+}
+.addtopicform #slug {
+  padding: 2px 2px 2px 2px;
+  background-color: beige;
+}
+.addtopicform #description {
+  background-color: beige;
+  width: 200px;
+  height: 200px;
+}
 .userdrop {
   width: 100%;
   font-style: oblique;
@@ -135,10 +176,20 @@ body {
 .createbtn:hover {
   opacity: 2;
 }
+
 .commentinput {
   padding-top: 10px;
   background-color: black;
+  max-width: 90%;
+  align-self: center;
+  border-radius: 30px;
   border-style: ridge;
+  border-width: 5px;
+  border-color: gold;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  margin: 10px;
 }
 .commentinput button {
   padding-top: 10px;
@@ -161,18 +212,34 @@ body {
   box-sizing: border-box;
   padding: 12px 20px 12px 40px;
   border-color: rgb(240, 173, 4);
+  color: gold;
 }
 .cominput:focus {
   border: 3px solid black;
 }
 .commentsbody {
   padding-bottom: 10px;
-  background-color: beige;
+  background-color: black;
+  max-width: 90%;
+  align-self: center;
+  border-radius: 30px;
+  border-style: ridge;
+  border-width: 5px;
+  border-color: gold;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 10px;
+}
+.commentsbody p {
+  color: gold;
 }
 .commentsbody h6 {
   font-style: oblique;
   font-weight: bold;
-  color: #555555;
+  color: beige;
+}
+.commentvotes {
+  color: gold;
 }
 
 .artmain {
@@ -186,6 +253,10 @@ body {
   font-style: oblique;
   font-weight: bold;
   background-color: #dae0e6;
+  border-radius: 1fr;
+  border-style: ridge;
+  border-color: gold;
+  margin: 10px;
 }
 .artmain .sortmain select {
   font-style: oblique;
@@ -197,17 +268,20 @@ body {
   color: black;
   font-weight: lighter;
   text-align: left;
-  text-decoration-color: rgb(240, 173, 4);
+  text-decoration-color: skyblue(240, 173, 4);
 }
 .artCard {
   grid: art;
   flex-direction: column;
   justify-content: flex-start;
-
   color: rgb(13, 37, 47);
   background-color: #dae0e6;
   font-style: oblique;
   padding: 5px 5px 5px 5px;
+  border-radius: 1fr;
+  border-style: ridge;
+  border-color: gold;
+  margin: 10px;
 }
 .artCard a {
   text-decoration: none;
@@ -224,19 +298,32 @@ body {
 }
 .arth2 {
   padding: 10px;
+  color: rgb(44, 105, 204);
+  font-style: normal;
 }
 .bodycard {
   background-color: #dae0e6;
+  max-width: 90%;
+  align-self: center;
+  border-radius: 30px;
+  border-style: ridge;
+  border-width: 5px;
+  border-color: gold;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 10px;
 }
+
 .bodycard h2 {
   font-style: oblique;
-  color: black;
+  color: rgb(44, 105, 204);
 }
 .bodycard h5 {
   font-style: oblique;
   font-weight: bold;
   color: gray;
 }
+
 .bodycard a {
   text-decoration-style: dotted;
 }
