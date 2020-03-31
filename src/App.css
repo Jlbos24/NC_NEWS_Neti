@@ -241,7 +241,18 @@ body {
 .commentvotes {
   color: gold;
 }
-
+.addarticle {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: gold;
+  border-width: 3px;
+  width: 400px;
+  height: 500px;
+}
 .artmain {
   display: grid;
   grid-template-areas: "art art";

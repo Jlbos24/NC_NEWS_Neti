@@ -6,11 +6,13 @@ import "../App.css";
 import Toolbar from "./Toolbar";
 import ErrorHandling from "./ErrorHandling";
 import Users from "./Users";
+import AddArticle from "./AddArticle";
 
 class AllArticles extends Component {
   state = {
     articles: [],
     isLoading: true,
+
     error: null
   };
 
@@ -43,24 +45,34 @@ class AllArticles extends Component {
     });
   };
 
+  addArticle = () => {};
+
   render() {
     if (this.state.isLoading) return <Loader />;
     if (this.props.set === false) return <Users />;
     if (this.state.error) return <ErrorHandling {...this.state.error} />;
     return (
-      <main className={"artmain"}>
-        <Toolbar getArticles={this.getArticles} />
-        {this.state.articles.map(article => {
-          return (
-            <ArticleCard
-              key={article.article_id}
-              {...article}
-              currentUser={this.props.currentUser}
-              delArticle={this.delArticle}
-            />
-          );
-        })}
-      </main>
+      <>
+        <main className={"artmain"}>
+          <Toolbar getArticles={this.getArticles} />
+          {this.state.articles.map(article => {
+            return (
+              <ArticleCard
+                key={article.article_id}
+                {...article}
+                currentUser={this.props.currentUser}
+                delArticle={this.delArticle}
+              />
+            );
+          })}
+          <AddArticle
+            to="/articles/addarticle"
+            currentUser={this.props.currentUser}
+            AddArticle={this.addArticle}
+            getTopics={this.props.getTopics}
+          />
+        </main>
+      </>
     );
   }
 }

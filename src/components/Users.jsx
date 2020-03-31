@@ -74,7 +74,7 @@ class Users extends Component {
           <h3 className={"loginh3"}>Sign In</h3>
           <section className={"users-select"}>
             <select className={"userdrop"} onChange={this.handleChange}>
-              <option value="" disabled selected hidden>
+              <option disabled selected hidden>
                 Select User
               </option>
               {this.state.users.map(user => {
