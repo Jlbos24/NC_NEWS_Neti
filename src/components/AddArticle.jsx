@@ -11,7 +11,6 @@ class AddArticle extends Component {
   };
   fetchTopic = () => {
     api.fetchTopics().then(topics => {
-      console.log(topics, " topics");
       this.setState({ topics });
     });
   };
@@ -26,7 +25,7 @@ class AddArticle extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { title, body, topic } = this.state;
-    //add author - currentuser
+
     api
       .postArticle(title, body, topic, this.props.currentUser)
       .then(article => {
@@ -40,7 +39,6 @@ class AddArticle extends Component {
   };
 
   render() {
-    console.dir(this.props);
     return (
       <form onSubmit={this.handleSubmit} className="addarticle">
         <label>

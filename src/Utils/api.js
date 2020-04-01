@@ -99,15 +99,26 @@ const deleteArticle = article_id => {
 };
 
 const postTopic = (slug, description) => {
-  console.log(slug, "slug", description, "description", "In API");
   return axios
     .post(`https://jlb-news-app.herokuapp.com/api/topics/`, {
       slug,
       description
     })
     .then(({ data }) => {
-      console.log("data");
       return data.topic;
+    });
+};
+
+const postArticle = (title, body, topic, author) => {
+  return axios
+    .post(`https://jlb-news-app.herokuapp.com/api/articles/`, {
+      title,
+      body,
+      topic,
+      author
+    })
+    .then(({ data }) => {
+      return data.article;
     });
 };
 module.exports = {
@@ -122,5 +133,6 @@ module.exports = {
   fetchUsers,
   postUser,
   deleteArticle,
-  postTopic
+  postTopic,
+  postArticle
 };

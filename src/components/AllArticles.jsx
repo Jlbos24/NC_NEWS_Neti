@@ -45,7 +45,11 @@ class AllArticles extends Component {
     });
   };
 
-  addArticle = () => {};
+  addArticle = article => {
+    this.setState(currentState => {
+      return { articles: [article, ...currentState.articles] };
+    });
+  };
 
   render() {
     if (this.state.isLoading) return <Loader />;
@@ -68,7 +72,7 @@ class AllArticles extends Component {
           <AddArticle
             to="/articles/addarticle"
             currentUser={this.props.currentUser}
-            AddArticle={this.addArticle}
+            addArticle={this.addArticle}
             getTopics={this.props.getTopics}
           />
         </main>
