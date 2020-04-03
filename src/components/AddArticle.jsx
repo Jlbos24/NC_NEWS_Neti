@@ -1,22 +1,16 @@
 import React, { Component } from "react";
 import * as api from "../Utils/api";
+import ErrorHandling from "./ErrorHandling";
 
 class AddArticle extends Component {
   state = {
     article: {},
-    topics: [],
     title: "",
     body: "",
-    topic: ""
+    topic: "",
+    error: false
   };
-  fetchTopic = () => {
-    api.fetchTopics().then(topics => {
-      this.setState({ topics });
-    });
-  };
-  componentDidMount() {
-    this.fetchTopic();
-  }
+
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
@@ -31,14 +25,11 @@ class AddArticle extends Component {
       .then(article => {
         this.props.addArticle(article);
       });
-    this.setState({
-      title: "",
-      body: "",
-      topic: ""
-    });
+    this.setState({ title: "", body: "", topic: "" });
   };
 
   render() {
+    if (this.state.error) return <ErrorHandling {...this.state.error} />;
     return (
       <form onSubmit={this.handleSubmit} className="addarticle">
         <label>
@@ -59,7 +50,7 @@ class AddArticle extends Component {
           <option value="" disabled selected hidden>
             Select
           </option>
-          {this.state.topics.map(topic => {
+          {this.props.topics.map(topic => {
             return (
               <option key={topic.slug} value={topic.slug}>
                 {topic.slug}

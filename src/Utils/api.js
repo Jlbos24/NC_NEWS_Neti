@@ -110,6 +110,7 @@ const postTopic = (slug, description) => {
 };
 
 const postArticle = (title, body, topic, author) => {
+  console.log(title, body, topic, author);
   return axios
     .post(`https://jlb-news-app.herokuapp.com/api/articles/`, {
       title,
@@ -118,6 +119,7 @@ const postArticle = (title, body, topic, author) => {
       author
     })
     .then(({ data }) => {
+      console.log(data.article);
       return data.article;
     });
 };

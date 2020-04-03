@@ -6,7 +6,6 @@ import "../App.css";
 import Toolbar from "./Toolbar";
 import ErrorHandling from "./ErrorHandling";
 import Users from "./Users";
-import AddArticle from "./AddArticle";
 
 class AllArticles extends Component {
   state = {
@@ -37,6 +36,7 @@ class AllArticles extends Component {
     if (prevProps.slug !== this.props.slug) {
       this.getArticles();
     }
+    //else if (prevState.articles)
   }
 
   delArticle = (article_id, sort_by, order) => {
@@ -45,9 +45,9 @@ class AllArticles extends Component {
     });
   };
 
-  addArticle = article => {
+  updateArticle = () => {
     this.setState(currentState => {
-      return { articles: [article, ...currentState.articles] };
+      return { articles: [this.props.article, ...currentState.articles] };
     });
   };
 
@@ -56,27 +56,19 @@ class AllArticles extends Component {
     if (this.props.set === false) return <Users />;
     if (this.state.error) return <ErrorHandling {...this.state.error} />;
     return (
-      <>
-        <main className={"artmain"}>
-          <Toolbar getArticles={this.getArticles} />
-          {this.state.articles.map(article => {
-            return (
-              <ArticleCard
-                key={article.article_id}
-                {...article}
-                currentUser={this.props.currentUser}
-                delArticle={this.delArticle}
-              />
-            );
-          })}
-          <AddArticle
-            to="/articles/addarticle"
-            currentUser={this.props.currentUser}
-            addArticle={this.addArticle}
-            getTopics={this.props.getTopics}
-          />
-        </main>
-      </>
+      <main className={"artmain"}>
+        <Toolbar getArticles={this.getArticles} />
+        {this.state.articles.map(article => {
+          return (
+            <ArticleCard
+              key={article.article_id}
+              {...article}
+              currentUser={this.props.currentUser}
+              delArticle={this.delArticle}
+            />
+          );
+        })}
+      </main>
     );
   }
 }

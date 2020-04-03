@@ -10,10 +10,12 @@ import ErrorHandling from "./components/ErrorHandling";
 
 import AddTopic from "./components/AddTopic";
 import * as api from "./Utils/api";
+import AddArticle from "./components/AddArticle";
 
 class App extends Component {
   state = {
     topics: [],
+    article: {},
     currentUser: "",
     set: false
   };
@@ -36,6 +38,9 @@ class App extends Component {
       return { topics: [topic, ...currentState.topics] };
     });
   };
+  addArticle = article => {
+    this.setState({ article });
+  };
 
   render() {
     return (
@@ -43,7 +48,7 @@ class App extends Component {
         <Title />
 
         <Navbar
-          {...this.state}
+          topics={this.state.topics}
           currentUser={this.state.currentUser}
           set={this.state.set}
         />
@@ -53,12 +58,7 @@ class App extends Component {
           <Users path="/" setUser={this.setUser} />
           <AllArticles
             path="/articles"
-            currentUser={this.state.currentUser}
-            set={this.state.set}
-          />
-          <AllArticles
-            path="/articles/addarticle"
-            getTopics={this.getTopics}
+            article={this.state.article}
             currentUser={this.state.currentUser}
             set={this.state.set}
           />
@@ -69,6 +69,14 @@ class App extends Component {
           />
           <BodyCard
             path="/articles/:article_id/*"
+            currentUser={this.state.currentUser}
+            set={this.state.set}
+          />
+          <AddArticle
+            path="/addarticle"
+            topics={this.state.topics}
+            getTopics={this.getTopics}
+            addArticle={this.addArticle}
             currentUser={this.state.currentUser}
             set={this.state.set}
           />

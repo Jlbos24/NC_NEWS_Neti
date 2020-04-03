@@ -39,7 +39,7 @@ const SortArticles = props => {
         <Link to="/addtopics">
           <button>Add a new topic..</button>
         </Link>
-        <Link to="/articles/addarticle">
+        <Link to="/addarticle">
           <button>Write an Article..</button>
         </Link>
       </section>

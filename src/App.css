@@ -1,7 +1,4 @@
 html {
-  background-color: rgb(4, 13, 31);
-}
-body {
   background: url("./images/contactmeimg.jpeg") no-repeat center center fixed;
 }
 
@@ -94,36 +91,54 @@ body {
   display: flex;
   flex-direction: column;
   align-self: center;
-  border-style: solid;
+  border-style: ridge;
+  border-radius: 10px;
+  background-color: #dae0e6;
   box-sizing: border-box;
   border-color: gold;
   border-width: 3px;
-  width: 400px;
-  height: 500px;
+  width: 70%;
+  height: 300px;
 }
 .addtopicform h2 {
   font-weight: bold;
   font-style: oblique;
   font-size: large;
-  color: gold;
+  color: black;
+  text-align: center;
 }
-
-.addtopicform label {
+.addtopicform ::placeholder {
+  color: black;
+}
+.addtopicform input {
   display: flex;
-  justify-content: center;
-  color: gold;
-  font-style: oblique;
-  font-weight: bold;
-  padding: 5px 5px 5px 5px;
+  align-self: center;
+  width: 70%;
+  height: 20px;
+  border-radius: 8px;
+  border-color: black;
 }
 .addtopicform #slug {
-  padding: 2px 2px 2px 2px;
+  padding: 5px;
+  margin: 5px 0 22px 0;
   background-color: beige;
 }
+
 .addtopicform #description {
+  padding: 5px;
+  margin: 5px 0 22px 0;
   background-color: beige;
-  width: 200px;
-  height: 200px;
+}
+
+.addtopicform button {
+  vertical-align: middle;
+  transition-duration: 0.4s;
+  max-width: 150px;
+  height: 40px;
+}
+.addtopicform button:hover {
+  background-color: #4caf50;
+  color: white;
 }
 .userdrop {
   width: 100%;

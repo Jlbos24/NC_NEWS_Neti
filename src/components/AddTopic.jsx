@@ -27,27 +27,26 @@ class AddTopic extends Component {
     return (
       <form className={"addtopicform"} onSubmit={this.handleSubmit}>
         <h2>New Topics</h2>
-        <label>
-          Title
-          <input
-            value={slug}
-            type="text"
-            id="slug"
-            required
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Description
-          <input
-            value={description}
-            type="text"
-            id="description"
-            placeholder="a brief description of the topic"
-            required
-            onChange={this.handleChange}
-          />
-        </label>
+        <input
+          value={slug}
+          type="text"
+          id="slug"
+          name="slug"
+          placeholder="Your topic slug..."
+          required
+          onChange={this.handleChange}
+        />
+
+        <input
+          value={description}
+          type="text"
+          id="description"
+          name="description"
+          placeholder="A brief description of the topic..."
+          required
+          onChange={this.handleChange}
+        />
+
         <button type="submit">Submit</button>
       </form>
     );
