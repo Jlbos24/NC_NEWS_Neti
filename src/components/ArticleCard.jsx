@@ -21,7 +21,7 @@ const ArticleCard = props => {
         <br />
         {props.comment_count} Comments on this article
         <br />
-        {props.votes} Votes for this one
+        {props.votes} Votes for this article
         <br />
         Written on {date}
       </ul>

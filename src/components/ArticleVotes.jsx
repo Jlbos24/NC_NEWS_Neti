@@ -23,7 +23,7 @@ class ArticleVotes extends Component {
             this.updateVotes(1);
           }}
         >
-          Agree
+          <i class="far fa-thumbs-up"></i>
         </button>
         <button
           disabled={newvotes < 0}
@@ -31,7 +31,7 @@ class ArticleVotes extends Component {
             this.updateVotes(-1);
           }}
         >
-          Disagree
+          <i class="far fa-thumbs-down"></i>
         </button>
       </section>
     );

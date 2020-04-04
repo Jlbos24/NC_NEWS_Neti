@@ -32,12 +32,23 @@ class AddArticle extends Component {
     if (this.state.error) return <ErrorHandling {...this.state.error} />;
     return (
       <form onSubmit={this.handleSubmit} className="addarticle">
-        <label>
-          Your title
-          <input id="title" type="text" onChange={this.handleChange} required />
-        </label>
-
+        <h2>What do you have to say??</h2>
         <input
+          id="title"
+          type="text"
+          placeholder={"Your title..."}
+          onChange={this.handleChange}
+          required
+        />
+        {/* <input
+          placeholder="tell us your story"
+          id="body"
+          type="text"
+          onChange={this.handleChange}
+          required
+        /> */}
+        <textarea
+          rows="5"
           placeholder="tell us your story"
           id="body"
           type="text"
@@ -45,10 +56,9 @@ class AddArticle extends Component {
           required
         />
 
-        <label> Topic </label>
         <select id={"topic"} name="type" onChange={this.handleChange}>
           <option value="" disabled selected hidden>
-            Select
+            Select a topic
           </option>
           {this.props.topics.map(topic => {
             return (
@@ -59,7 +69,7 @@ class AddArticle extends Component {
           })}
         </select>
 
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }

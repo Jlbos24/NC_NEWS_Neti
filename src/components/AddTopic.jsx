@@ -26,7 +26,7 @@ class AddTopic extends Component {
     const { slug, description } = this.state;
     return (
       <form className={"addtopicform"} onSubmit={this.handleSubmit}>
-        <h2>New Topics</h2>
+        <h2>New Topics...</h2>
         <input
           value={slug}
           type="text"

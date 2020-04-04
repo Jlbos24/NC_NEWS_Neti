@@ -61,7 +61,8 @@ class BodyCard extends Component {
             <br />
             {date}
             <br />
-            <br />
+          </h5>
+          <h5>
             <Link to={`/articles/${article_id}/comments`}>
               comments({Number(comment_count) + this.state.count})
             </Link>
@@ -69,7 +70,7 @@ class BodyCard extends Component {
             <ArticleVotes {...this.state.article} />
           </h5>
         </article>
-        <section>
+        <section className={"sect-comments"}>
           <Router>
             <Comments
               path="/comments"

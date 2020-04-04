@@ -50,6 +50,7 @@ class App extends Component {
         <Navbar
           topics={this.state.topics}
           currentUser={this.state.currentUser}
+          currentAvatar={this.state.currentAvatar}
           set={this.state.set}
         />
 

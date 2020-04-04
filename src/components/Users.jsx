@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../Utils/api";
 import "../App.css";
+
 import { Link } from "@reach/router";
 import ErrorHandling from "./ErrorHandling";
 
@@ -8,6 +9,7 @@ class Users extends Component {
   state = {
     users: [],
     currentUser: "",
+
     set: false,
     newUsername: "",
     newName: "",
@@ -39,13 +41,20 @@ class Users extends Component {
   };
   handleChange = event => {
     const { value } = event.target;
-    this.setState({ currentUser: value, set: true });
+
+    this.setState({
+      currentUser: value,
+      set: true
+    });
   };
   handleSignIn = () => {
     this.props.setUser(this.state.currentUser, this.state.set);
   };
   handleSignOut = () => {
-    this.setState({ currentUser: "", set: false });
+    this.setState({
+      currentUser: "",
+      set: false
+    });
     this.props.setUser(this.state.currentUser, this.state.set);
   };
   handleUserCreateChange = event => {

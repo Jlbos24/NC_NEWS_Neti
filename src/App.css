@@ -1,8 +1,10 @@
 html {
   background: url("./images/contactmeimg.jpeg") no-repeat center center fixed;
+  font-family: "Indie Flower", cursive;
 }
 
 .App {
+  font-family: "Indie Flower", cursive;
   max-width: 1440px;
   display: grid;
   grid-template-areas:
@@ -19,46 +21,47 @@ html {
   font-weight: bolder;
 }
 .errorhandlemain {
-  color: red;
+  /* color: red; */
   text-align: center;
   font-weight: bold;
   font-style: normal;
-  background-color: #dae0e6;
+  /* background-color: #dae0e6; */
 }
 .nav {
   text-align: center;
   grid-area: nav;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding: 10px;
+  justify-content: center;
+  background-color: transparent;
+  border-style: solid;
+  border-color: gold;
 }
-
-.nav label {
-  color: rgb(240, 173, 4);
+.nav img {
+  padding: 0px 0px 0px 0px;
+  /* display: flex; */
+  background-color: white;
+  /* height: 50%;
+  width: 20%; */
+}
+.nav img:hover {
+  /* background-color: transparent; */
+  color: gold;
+  background-color: black;
+}
+.nav a {
+  padding-left: 5px;
+  text-decoration: none;
   padding-top: 18px;
   font-size: 120%;
   font-weight: bold;
+  color: gold;
+}
+.nav a:hover {
+  cursor: grab;
+  /* background-color: black; */
 }
 
-.nav button {
-  width: 100%;
-  padding: 16px 32px;
-  font-size: 13px;
-  font-style: oblique;
-  margin: 4px 2px;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  background-color: beige;
-  color: black;
-  border: 2px solid #555555;
-}
-.nav button:hover {
-  background-color: rgb(240, 173, 4);
-  color: black;
-}
 .titleheader {
   box-sizing: border-box;
 
@@ -78,22 +81,32 @@ html {
   justify-content: center;
 }
 .usersMain {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
   box-sizing: border-box;
+
   border-style: solid;
-  border-color: skyblue;
+  border-color: gold;
   font-size: 20px;
   font-style: oblique;
   padding: 16px 16px;
+  padding-top: 10px;
   background-color: beige;
+
+  max-width: 80%;
+  max-height: fit-content;
 }
 .addtopicform {
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-self: center;
+  justify-content: center;
   border-style: ridge;
   border-radius: 10px;
-  background-color: #dae0e6;
+  background-color: beige;
   box-sizing: border-box;
   border-color: gold;
   border-width: 3px;
@@ -107,42 +120,141 @@ html {
   color: black;
   text-align: center;
 }
-.addtopicform ::placeholder {
-  color: black;
-}
 .addtopicform input {
   display: flex;
   align-self: center;
   width: 70%;
   height: 20px;
-  border-radius: 8px;
-  border-color: black;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border-color: rgb(240, 173, 4);
+  background: beige;
+}
+.addtopicform input:focus {
+  border: 3px solid skyblue;
 }
 .addtopicform #slug {
   padding: 5px;
   margin: 5px 0 22px 0;
-  background-color: beige;
+  font-family: "Indie Flower", cursive;
 }
-
 .addtopicform #description {
   padding: 5px;
   margin: 5px 0 22px 0;
-  background-color: beige;
+  font-family: "Indie Flower", cursive;
 }
-
 .addtopicform button {
+  display: flex;
+  align-self: center;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  border: none;
+  background-color: beige;
+  color: black;
   vertical-align: middle;
   transition-duration: 0.4s;
-  max-width: 150px;
+  width: 100px;
   height: 40px;
+  font-family: "Indie Flower", cursive;
 }
 .addtopicform button:hover {
-  background-color: #4caf50;
-  color: white;
+  background-color: black;
+  color: gold;
+}
+.addarticle {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  border-style: ridge;
+  border-radius: 10px;
+  background-color: beige;
+  box-sizing: border-box;
+  border-color: gold;
+  border-width: 3px;
+  width: 600px;
+  height: 500px;
+  font-family: "Indie Flower", cursive;
+}
+.addarticle h2 {
+  font-weight: bold;
+  font-style: oblique;
+  font-size: large;
+  color: black;
+  text-align: center;
+}
+.addarticle button {
+  display: flex;
+  align-self: center;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  border: none;
+  background-color: beige;
+  color: black;
+  vertical-align: middle;
+  transition-duration: 0.4s;
+  width: 100px;
+  height: 40px;
+  font-family: "Indie Flower", cursive;
+}
+.addarticle button:hover {
+  background-color: black;
+  color: gold;
+}
+.addarticle input {
+  display: flex;
+  align-self: center;
+  width: 70%;
+  height: 20px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border-color: rgb(240, 173, 4);
+  background: beige;
+}
+.addarticle input:focus {
+  border: 3px solid skyblue;
+}
+.addarticle textarea {
+  display: flex;
+  align-self: center;
+  width: 80%;
+  height: 50%;
+  font-family: "Indie Flower", cursive;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border-color: rgb(240, 173, 4);
+  background: beige;
+}
+.addarticle textarea:focus {
+  border: 3px solid skyblue;
+}
+.addarticle #title {
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  font-family: "Indie Flower", cursive;
+}
+.addarticle #body {
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  font-family: "Indie Flower", cursive;
+}
+.addarticle #topic {
+  font-family: "Indie Flower", cursive;
+  width: 80%;
+  display: flex;
+  align-self: center;
 }
 .userdrop {
   width: 100%;
   font-style: oblique;
+  font-family: "Indie Flower", cursive;
 }
 .sign-io-btn {
   width: 100%;
@@ -157,6 +269,7 @@ html {
   background-color: beige;
   color: black;
   border: 2px solid #555555;
+  font-family: "Indie Flower", cursive;
 }
 .sign-io-btn:hover {
   background-color: rgb(240, 173, 4);
@@ -164,8 +277,8 @@ html {
 }
 .signup {
   text-align: right;
+  font-family: "Indie Flower", cursive;
 }
-
 .crteurinput {
   width: 30%;
   padding: 15px;
@@ -173,6 +286,7 @@ html {
   display: inline-block;
   border-color: rgb(240, 173, 4);
   background: beige;
+  font-family: "Indie Flower", cursive;
 }
 .crteurinput:focus {
   border: 3px solid skyblue;
@@ -187,11 +301,11 @@ html {
   cursor: pointer;
   width: 32.3%;
   opacity: 1;
+  font-family: "Indie Flower", cursive;
 }
 .createbtn:hover {
   opacity: 2;
 }
-
 .commentinput {
   padding-top: 10px;
   background-color: black;
@@ -207,14 +321,25 @@ html {
   margin: 10px;
 }
 .commentinput button {
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  border: none;
+  background-color: black;
+
+  vertical-align: middle;
+  transition-duration: 0.4s;
+
   padding-top: 10px;
   padding-bottom: 10px;
-  border-width: 1px;
-  border-style: groove;
-  border-color: rgb(240, 173, 4);
-  background-color: black;
+
   text-align: center;
   color: rgb(240, 173, 4);
+  font-family: "Indie Flower", cursive;
+}
+.commentinput button:hover {
+  color: beige;
+  cursor: grab;
 }
 .commentinput h2 {
   font-style: oblique;
@@ -227,7 +352,7 @@ html {
   box-sizing: border-box;
   padding: 12px 20px 12px 40px;
   border-color: rgb(240, 173, 4);
-  color: gold;
+  color: black;
 }
 .cominput:focus {
   border: 3px solid black;
@@ -250,23 +375,57 @@ html {
 }
 .commentsbody h6 {
   font-style: oblique;
-  font-weight: bold;
+  font-family: "Comic Neue", cursive;
   color: beige;
 }
 .commentvotes {
   color: gold;
 }
-.addarticle {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  border-style: solid;
-  box-sizing: border-box;
+.commentvotes button {
+  font-family: "Indie Flower", cursive;
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  border: none;
+  background-color: black;
+
+  vertical-align: middle;
+  transition-duration: 0.4s;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  text-align: center;
+  color: rgb(240, 173, 4);
+}
+.commentvotes button:hover {
+  color: beige;
+  cursor: grab;
+}
+.commentvotes label {
+  font-family: "Comic Neue", cursive;
+}
+.delbtn {
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  background-color: black;
+
+  vertical-align: middle;
+  transition-duration: 0.4s;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-color: gold;
-  border-width: 3px;
-  width: 400px;
-  height: 500px;
+  text-align: center;
+  color: rgb(240, 173, 4);
+  font-family: "Indie Flower", cursive;
+  cursor: grab;
+}
+.delbtn:hover {
+  border-color: black;
+  color: black;
+  background-color: rgb(240, 173, 4);
 }
 .artmain {
   display: grid;
@@ -283,9 +442,17 @@ html {
   border-style: ridge;
   border-color: gold;
   margin: 10px;
+  font-family: "Indie Flower", cursive;
 }
 .artmain .sortmain select {
   font-style: oblique;
+  font-family: "Indie Flower", cursive;
+  font-weight: bold;
+}
+.artmain .sortmain select:hover {
+  cursor: grab;
+  background-color: black;
+  color: gold;
 }
 .artmain .sortmain p {
   text-align: left;
@@ -295,6 +462,25 @@ html {
   font-weight: lighter;
   text-align: left;
   text-decoration-color: skyblue(240, 173, 4);
+}
+.artmain .sortmain a:hover {
+  cursor: grab;
+  background-color: black;
+  color: gold;
+}
+.sortmain button {
+  font-family: "Indie Flower", cursive;
+  color: black;
+  font-weight: bold;
+  border: none;
+}
+.sortmain button:hover {
+  cursor: grab;
+  background-color: black;
+  color: gold;
+}
+.sortmain ul {
+  font-family: "Comic Neue", cursive;
 }
 .artCard {
   grid: art;
@@ -311,9 +497,10 @@ html {
 }
 .artCard a {
   text-decoration: none;
-  color: black;
 }
+
 .artCard p {
+  font-family: "Comic Neue", cursive;
   font-weight: bold;
   padding-left: 15px;
 }
@@ -321,11 +508,36 @@ html {
   text-decoration: none;
   font-weight: lighter;
   color: black;
+  font-family: "Comic Neue", cursive;
+}
+.artCard button {
+  font-family: "Indie Flower", cursive;
+
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  vertical-align: middle;
+  transition-duration: 0.4s;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  text-align: center;
+  color: black;
+  cursor: grab;
+  font-weight: bold;
+}
+.artCard button:hover {
+  cursor: grab;
+  background-color: black;
+  color: gold;
 }
 .arth2 {
   padding: 10px;
   color: rgb(44, 105, 204);
   font-style: normal;
+}
+.arth2:hover {
+  color: black;
 }
 .bodycard {
   background-color: #dae0e6;
@@ -339,7 +551,6 @@ html {
   padding-right: 2%;
   margin: 10px;
 }
-
 .bodycard h2 {
   font-style: oblique;
   color: rgb(44, 105, 204);
@@ -348,10 +559,33 @@ html {
   font-style: oblique;
   font-weight: bold;
   color: gray;
+  font-family: "Comic Neue", cursive;
 }
-
 .bodycard a {
   text-decoration-style: dotted;
+}
+.bodycard button {
+  font-family: "Indie Flower", cursive;
+  font-family: "Indie Flower", cursive;
+  font-size: 16px;
+  font-style: oblique;
+  margin: 4px 2px;
+  border: none;
+  background-color: #dae0e6;
+  transition-duration: 0.4s;
+  color: black;
+}
+
+.bodycard button:hover {
+  cursor: grab;
+  color: skyblue;
+}
+.bodycard p {
+  font-family: "Comic Neue", cursive;
+}
+.sect-comments {
+  max-width: 90%;
+  align-self: center;
 }
 @media (max-width: 425px) {
   .titleheader {

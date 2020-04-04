@@ -21,7 +21,7 @@ const SortArticles = props => {
         </select>
 
         <ul>
-          "want more...check these links"
+          "want more...check out these resources"
           <li>
             <a href="https://devchat.tv/js-jabber/">
               JS-Jabber Podcast to go with the your coding articles
@@ -37,10 +37,10 @@ const SortArticles = props => {
           </li>
         </ul>
         <Link to="/addtopics">
-          <button>Add a new topic..</button>
+          <button>Add a new topic here...</button>
         </Link>
         <Link to="/addarticle">
-          <button>Write an Article..</button>
+          <button>Write an Article here...</button>
         </Link>
       </section>
     </>
