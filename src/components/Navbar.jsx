@@ -6,13 +6,13 @@ const Navbar = props => {
   return (
     <>
       <nav className={"nav"}>
-        <Link to="/">
+        <Link className={"navavatar"} to="/">
           <img
             alt="loginimage"
-            src="https://img.icons8.com/ios-filled/50/000000/change-user-male.png"
+            src="https://img.icons8.com/nolan/45/google-scholar.png"
           />
         </Link>
-        <Link to="/">
+        <Link className={"navhome"} to="/">
           {props.currentUser
             ? `Signed in as ${props.currentUser}`
             : "You have not yet signed in..."}

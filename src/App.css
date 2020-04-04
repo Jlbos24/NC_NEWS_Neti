@@ -21,36 +21,25 @@ html {
   font-weight: bolder;
 }
 .errorhandlemain {
-  /* color: red; */
   text-align: center;
   font-weight: bold;
   font-style: normal;
-  /* background-color: #dae0e6; */
 }
 .nav {
-  text-align: center;
   grid-area: nav;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   background-color: transparent;
   border-style: solid;
   border-color: gold;
 }
-.nav img {
-  padding: 0px 0px 0px 0px;
-  /* display: flex; */
-  background-color: white;
-  /* height: 50%;
-  width: 20%; */
-}
-.nav img:hover {
-  /* background-color: transparent; */
-  color: gold;
-  background-color: black;
+.nav .navavatar {
+  padding-top: 8px;
+  background-color: transparent;
 }
 .nav a {
-  padding-left: 5px;
+  padding-left: 15px;
   text-decoration: none;
   padding-top: 18px;
   font-size: 120%;
@@ -59,16 +48,18 @@ html {
 }
 .nav a:hover {
   cursor: grab;
-  /* background-color: black; */
+  text-decoration: underline;
+}
+.nav .navhome {
+  text-decoration: underline;
 }
 
 .titleheader {
   box-sizing: border-box;
-
   text-align: center;
   grid-area: header;
-  padding: 20px 10px;
   font-style: oblique;
+  font-size: larger;
   color: rgb(240, 173, 4);
 }
 .main {
