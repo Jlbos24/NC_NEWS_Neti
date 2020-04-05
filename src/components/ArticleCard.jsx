@@ -2,9 +2,9 @@ import React from "react";
 import "../App.css";
 import { Link } from "@reach/router";
 
-const ArticleCard = props => {
+const ArticleCard = (props) => {
   const date = new Date(props.created_at).toDateString();
-
+  console.log(props.currentUser, " current user in articlecard");
   const handleClick = () => {
     props.delArticle(props.article_id);
   };

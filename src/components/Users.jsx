@@ -16,16 +16,16 @@ class Users extends Component {
     newAvatar: "",
     created: false,
     isLoading: true,
-    error: null
+    error: null,
   };
 
   getUsers = () => {
     api
       .fetchUsers()
-      .then(users => {
+      .then((users) => {
         this.setState({ users, isLoading: false });
       })
-      .catch(error => {
+      .catch((error) => {
         const status = error.response.status;
         const message = error.response.data.msg;
         this.setState({ error: { status, message }, isLoading: false });
@@ -34,17 +34,17 @@ class Users extends Component {
   componentDidMount() {
     this.getUsers();
   }
-  addUser = user => {
-    this.setState(currentState => {
+  addUser = (user) => {
+    this.setState((currentState) => {
       return { users: [user, ...currentState.users] };
     });
   };
-  handleChange = event => {
+  handleChange = (event) => {
     const { value } = event.target;
 
     this.setState({
       currentUser: value,
-      set: true
+      set: true,
     });
   };
   handleSignIn = () => {
@@ -53,24 +53,25 @@ class Users extends Component {
   handleSignOut = () => {
     this.setState({
       currentUser: "",
-      set: false
+      set: false,
     });
+
     this.props.setUser(this.state.currentUser, this.state.set);
   };
-  handleUserCreateChange = event => {
+  handleUserCreateChange = (event) => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
   };
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { newUsername, newName, newAvatar } = this.state;
-    api.postUser(newUsername, newName, newAvatar).then(user => {
+    api.postUser(newUsername, newName, newAvatar).then((user) => {
       this.addUser(user);
       this.setState({
         newUsername: "",
         newName: "",
         newAvatar: "",
-        created: true
+        created: true,
       });
     });
   };
@@ -86,7 +87,7 @@ class Users extends Component {
               <option disabled selected hidden>
                 Select User
               </option>
-              {this.state.users.map(user => {
+              {this.state.users.map((user) => {
                 return (
                   <option key={user.username} value={user.username}>
                     {user.username}

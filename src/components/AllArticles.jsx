@@ -12,16 +12,16 @@ class AllArticles extends Component {
     articles: [],
     isLoading: true,
 
-    error: null
+    error: null,
   };
 
   getArticles = (sort_by, order) => {
     api
       .fetchArticles(this.props.slug, sort_by, order)
-      .then(articles => {
+      .then((articles) => {
         this.setState({ articles, isLoading: false });
       })
-      .catch(error => {
+      .catch((error) => {
         const status = error.response.status;
         const message = error.response.data.msg;
         this.setState({ error: { status, message }, isLoading: false });
@@ -36,7 +36,6 @@ class AllArticles extends Component {
     if (prevProps.slug !== this.props.slug) {
       this.getArticles();
     }
-    //else if (prevState.articles)
   }
 
   delArticle = (article_id, sort_by, order) => {
@@ -46,7 +45,7 @@ class AllArticles extends Component {
   };
 
   updateArticle = () => {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       return { articles: [this.props.article, ...currentState.articles] };
     });
   };
@@ -58,7 +57,7 @@ class AllArticles extends Component {
     return (
       <main className={"artmain"}>
         <Toolbar getArticles={this.getArticles} />
-        {this.state.articles.map(article => {
+        {this.state.articles.map((article) => {
           return (
             <ArticleCard
               key={article.article_id}

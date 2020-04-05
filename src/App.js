@@ -17,28 +17,51 @@ class App extends Component {
     topics: [],
     article: {},
     currentUser: "",
-    set: false
+    set: false,
   };
 
   setUser = (currentUser, set) => {
-    this.setState({ currentUser, set });
+    localStorage.setItem("currentUser", currentUser); //JSON.stringify(currentUser));
+    localStorage.setItem("set", set); //JSON.stringify(set));
+    console.log(localStorage, " in setuser");
+    //this.setState({ currentUser, set });
   };
 
   getTopics = () => {
-    api.fetchTopics().then(topics => {
+    api.fetchTopics().then((topics) => {
       this.setState({ topics });
     });
   };
   componentDidMount() {
     this.getTopics();
+    const currentUser = localStorage.getItem("currentUser");
+    const set = localStorage.getItem("set");
+    // console.log(currentUser, set, " in mount before if");
+    console.log(this.state.currentUser, " state in diud mount");
+
+    //   console.log(currentUser, set, " after if");
+    this.setState({
+      currentUser: currentUser,
+      set: set,
+    });
   }
 
-  addTopic = topic => {
-    this.setState(currentState => {
+  componentDidUpdate(prevProps, prevState) {
+    const currentUser = localStorage.getItem("currentUser");
+    const set = localStorage.getItem("set");
+    if (prevState.currentUser !== currentUser)
+      this.setState({
+        currentUser: currentUser,
+        set: set,
+      });
+  }
+
+  addTopic = (topic) => {
+    this.setState((currentState) => {
       return { topics: [topic, ...currentState.topics] };
     });
   };
-  addArticle = article => {
+  addArticle = (article) => {
     this.setState({ article });
   };
 
