@@ -21,10 +21,7 @@ class App extends Component {
   };
 
   setUser = (currentUser, set) => {
-    localStorage.setItem("currentUser", currentUser); //JSON.stringify(currentUser));
-    localStorage.setItem("set", set); //JSON.stringify(set));
-    console.log(localStorage, " in setuser");
-    //this.setState({ currentUser, set });
+    this.setState({ currentUser, set });
   };
 
   getTopics = () => {
@@ -34,26 +31,6 @@ class App extends Component {
   };
   componentDidMount() {
     this.getTopics();
-    const currentUser = localStorage.getItem("currentUser");
-    const set = localStorage.getItem("set");
-    // console.log(currentUser, set, " in mount before if");
-    console.log(this.state.currentUser, " state in diud mount");
-
-    //   console.log(currentUser, set, " after if");
-    this.setState({
-      currentUser: currentUser,
-      set: set,
-    });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const currentUser = localStorage.getItem("currentUser");
-    const set = localStorage.getItem("set");
-    if (prevState.currentUser !== currentUser)
-      this.setState({
-        currentUser: currentUser,
-        set: set,
-      });
   }
 
   addTopic = (topic) => {
@@ -66,6 +43,7 @@ class App extends Component {
   };
 
   render() {
+    if (this.props.set === false) return <Users path="/" />;
     return (
       <div className="App">
         <Title />

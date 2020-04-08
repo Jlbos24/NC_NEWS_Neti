@@ -8,21 +8,21 @@ class AddArticle extends Component {
     title: "",
     body: "",
     topic: "",
-    error: false
+    error: false,
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { title, body, topic } = this.state;
 
     api
       .postArticle(title, body, topic, this.props.currentUser)
-      .then(article => {
+      .then((article) => {
         this.props.addArticle(article);
       });
     this.setState({ title: "", body: "", topic: "" });
@@ -40,13 +40,7 @@ class AddArticle extends Component {
           onChange={this.handleChange}
           required
         />
-        {/* <input
-          placeholder="tell us your story"
-          id="body"
-          type="text"
-          onChange={this.handleChange}
-          required
-        /> */}
+
         <textarea
           rows="5"
           placeholder="tell us your story"
@@ -60,7 +54,7 @@ class AddArticle extends Component {
           <option value="" disabled selected hidden>
             Select a topic
           </option>
-          {this.props.topics.map(topic => {
+          {this.props.topics.map((topic) => {
             return (
               <option key={topic.slug} value={topic.slug}>
                 {topic.slug}

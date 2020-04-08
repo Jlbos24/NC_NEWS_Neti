@@ -55,7 +55,6 @@ class Users extends Component {
       currentUser: "",
       set: false,
     });
-
     this.props.setUser(this.state.currentUser, this.state.set);
   };
   handleUserCreateChange = (event) => {
