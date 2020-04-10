@@ -463,6 +463,7 @@ html {
   font-family: "Indie Flower", cursive;
   color: black;
   font-weight: bold;
+  font-size: large;
   border: none;
 }
 .sortmain button:hover {
