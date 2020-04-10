@@ -43,18 +43,19 @@ class App extends Component {
   };
 
   render() {
-    if (this.props.set === false) return <Users path="/" />;
     return (
       <div className="App">
         <Title />
-
-        <Navbar
-          topics={this.state.topics}
-          currentUser={this.state.currentUser}
-          currentAvatar={this.state.currentAvatar}
-          set={this.state.set}
-        />
-
+        {this.state.set ? (
+          <Navbar
+            topics={this.state.topics}
+            currentUser={this.state.currentUser}
+            currentAvatar={this.state.currentAvatar}
+            set={this.state.set}
+          />
+        ) : (
+          ""
+        )}
         <Router className="routermain">
           <AddTopic path="/addtopics" addTopic={this.addTopic} />
           <Users path="/" setUser={this.setUser} />

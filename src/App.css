@@ -341,13 +341,13 @@ html {
   width: 100%;
   background-position: 10px 10px;
   box-sizing: border-box;
-  padding: 12px 20px 12px 40px;
   border-color: rgb(240, 173, 4);
   color: black;
 }
 .cominput:focus {
   border: 3px solid black;
 }
+
 .commentsbody {
   padding-bottom: 10px;
   background-color: black;
@@ -585,29 +585,33 @@ html {
     font-size: 50%;
   }
   .nav {
-    display: grid;
-    position: relative;
-    font-size: 50%;
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .nav button {
-    font-size: 50%;
-    position: relative;
-  }
+
   .nav label {
     font-size: 100%;
     position: relative;
   }
 
-  .usersMain {
+  .nav a {
+    padding: 0px 0px 0px 0px;
+    font-weight: bolder;
     font-size: 80%;
+  }
+
+  .usersMain {
+    font-size: 90%;
     position: center;
   }
   .sign-io-btn {
-    font-size: 80%;
+    font-size: 90%;
     position: relative;
   }
   .createbtn {
-    font-size: 80%;
+    font-size: 90%;
     position: relative;
   }
   .crteurinput {
@@ -623,8 +627,27 @@ html {
     flex-direction: column;
     justify-content: right;
   }
+  .sortmain ul {
+    padding-right: 5px;
+  }
+  .artmain .sortmain {
+    font-size: 80%;
+  }
+  .artmain .sortmain select {
+    font-size: 90%;
+  }
+
+  .artmain .sortmain a button {
+    padding-bottom: 5px;
+  }
+
   .artCard {
     font-size: 80%;
+  }
+
+  .artCard .arth2 {
+    font-weight: 900;
+    font-size: 25px;
   }
   .bodycard h2 {
     font-size: 90%;
@@ -647,5 +670,9 @@ html {
   }
   .delbtn {
     font-size: 70%;
+  }
+  .addarticle {
+    width: 80%;
+    height: 90%;
   }
 }

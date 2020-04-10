@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+
 import { Link } from "@reach/router";
 
 const Navbar = (props) => {

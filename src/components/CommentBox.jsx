@@ -4,9 +4,9 @@ import "../App.css";
 
 class CommentBox extends Component {
   state = {
-    body: ""
+    body: "",
   };
-  handleChange = event => {
+  handleChange = (event) => {
     const { value } = event.target;
     this.setState({ body: value });
   };
@@ -17,7 +17,7 @@ class CommentBox extends Component {
         this.props.currentUser,
         this.state.body
       )
-      .then(comment => {
+      .then((comment) => {
         this.props.addComment(comment);
         this.props.updateCommentCount(1);
       });
@@ -28,7 +28,8 @@ class CommentBox extends Component {
     return (
       <section className="commentinput">
         <h2>Comments...</h2>
-        <input
+        <textarea
+          rows="3"
           className="cominput"
           placeholder="Your thoughts...."
           type="text"

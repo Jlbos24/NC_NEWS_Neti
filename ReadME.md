@@ -49,10 +49,7 @@ The project will open http://localhost:3000 in your local browser.
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "bulma": "^0.8.1",
-    "bulma-start": "0.0.3",
-    "node-sass": "^4.13.1",
-    "react": "^16.13.1",
+     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
 
