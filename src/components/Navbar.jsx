@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import loginclear32 from "../images/loginclear32.png";
 
 import { Link } from "@reach/router";
 
@@ -8,10 +9,7 @@ const Navbar = (props) => {
     <>
       <nav className={"nav"}>
         <Link className={"navavatar"} to="/">
-          <img
-            alt="loginimage"
-            src="https://img.icons8.com/nolan/45/google-scholar.png"
-          />
+          <img alt="loginimage" src={loginclear32} />
         </Link>
         <Link className={"navhome"} to="/">
           {props.currentUser
