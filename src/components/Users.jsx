@@ -49,15 +49,12 @@ class Users extends Component {
   };
   handleSignIn = () => {
     localStorage.setItem("currentUser", this.state.currentUser);
-    this.props.setUser(this.state.set);
   };
   handleSignOut = () => {
     localStorage.clear("currentUser");
-
     this.setState({
       set: false,
     });
-    this.props.setUser(this.state.set);
   };
   handleUserCreateChange = (event) => {
     const { id, value } = event.target;

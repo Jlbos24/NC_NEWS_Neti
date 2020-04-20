@@ -16,7 +16,6 @@ class App extends Component {
     topics: [],
     article: {},
     currentUser: "",
-    set: false,
   };
   componentDidMount() {
     const currentUser = localStorage.getItem("currentUser");
@@ -24,10 +23,6 @@ class App extends Component {
     this.setState({ currentUser });
     this.getTopics();
   }
-
-  setUser = (set) => {
-    this.setState({ set: set });
-  };
 
   getTopics = () => {
     api.fetchTopics().then((topics) => {
@@ -48,17 +43,14 @@ class App extends Component {
     return (
       <div className="App">
         <Title />
-        {this.state.set ? (
+
+        {this.state.currentUser ? (
           <Navbar
             topics={this.state.topics}
             currentUser={this.state.currentUser}
             currentAvatar={this.state.currentAvatar}
-            set={this.state.set}
           />
-        ) : (
-          ""
-        )}
-
+        ) : null}
         <Router className="routermain">
           <AddTopic path="/addtopics" addTopic={this.addTopic} />
           <Users path="/" setUser={this.setUser} />
@@ -66,17 +58,14 @@ class App extends Component {
             path="/articles"
             article={this.state.article}
             currentUser={this.state.currentUser}
-            set={this.state.set}
           />
           <AllArticles
             path="/articles/topic/:slug"
             currentUser={this.state.currentUser}
-            set={this.state.set}
           />
           <BodyCard
             path="/articles/:article_id/*"
             currentUser={this.state.currentUser}
-            set={this.state.set}
           />
           <AddArticle
             path="/addarticle"
@@ -84,7 +73,6 @@ class App extends Component {
             getTopics={this.getTopics}
             addArticle={this.addArticle}
             currentUser={this.state.currentUser}
-            set={this.state.set}
           />
 
           <ErrorHandling default />

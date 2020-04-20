@@ -5,23 +5,23 @@ import { Link, Router } from "@reach/router";
 import Comments from "./Comments";
 import ArticleVotes from "./ArticleVotes";
 import ErrorHandling from "./ErrorHandling";
-import Users from "./Users";
+
 import "../App.css";
 
 class BodyCard extends Component {
   state = {
     article: {},
     isLoading: true,
-    count: 0
+    count: 0,
   };
 
   getArticleByID = () => {
     api
       .fetchArticleByID(this.props.article_id)
-      .then(article => {
+      .then((article) => {
         this.setState({ article, isLoading: false });
       })
-      .catch(error => {
+      .catch((error) => {
         const status = error.response.status;
         const message = error.response.data.msg;
         this.setState({ error: { status, message }, isLoading: false });
@@ -31,15 +31,15 @@ class BodyCard extends Component {
     this.getArticleByID();
   }
 
-  updateCommentCount = count => {
-    this.setState(currentState => {
+  updateCommentCount = (count) => {
+    this.setState((currentState) => {
       return { count: currentState.count + count };
     });
   };
 
   render() {
     if (this.state.isLoading) return <Loader />;
-    if (this.props.set === false) return <Users />;
+
     if (this.state.error) return <ErrorHandling {...this.state.error} />;
     const {
       article_id,
@@ -47,7 +47,7 @@ class BodyCard extends Component {
       author,
       body,
       created_at,
-      comment_count
+      comment_count,
     } = this.state.article;
     const date = new Date(created_at).toDateString();
 
@@ -77,7 +77,6 @@ class BodyCard extends Component {
               article_id={article_id}
               comment_count={comment_count}
               currentUser={this.props.currentUser}
-              set={this.props.set}
               updateCommentCount={this.updateCommentCount}
             />
           </Router>
