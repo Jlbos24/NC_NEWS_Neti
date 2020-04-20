@@ -9,7 +9,7 @@ class Users extends Component {
   state = {
     users: [],
     currentUser: "",
-
+    navigate: false,
     set: false,
     newUsername: "",
     newName: "",
@@ -48,14 +48,16 @@ class Users extends Component {
     });
   };
   handleSignIn = () => {
-    this.props.setUser(this.state.currentUser, this.state.set);
+    localStorage.setItem("currentUser", this.state.currentUser);
+    this.props.setUser(this.state.set);
   };
   handleSignOut = () => {
+    localStorage.clear("currentUser");
+
     this.setState({
-      currentUser: "",
       set: false,
     });
-    this.props.setUser(this.state.currentUser, this.state.set);
+    this.props.setUser(this.state.set);
   };
   handleUserCreateChange = (event) => {
     const { id, value } = event.target;
@@ -76,6 +78,7 @@ class Users extends Component {
   };
   render() {
     if (this.state.error) return <ErrorHandling {...this.state.error} />;
+
     const { newUsername, newName, newAvatar } = this.state;
     return (
       <>
@@ -106,13 +109,11 @@ class Users extends Component {
             </button>
           </Link>
           <br />
-          <button
-            disabled={this.state.set === false}
-            className={"sign-io-btn"}
-            onClick={this.handleSignOut}
-          >
-            Sign Out
-          </button>
+          <Link to={"/"}>
+            <button className={"sign-io-btn"} onClick={this.handleSignOut}>
+              Sign Out
+            </button>
+          </Link>
           <form onSubmit={this.handleSubmit}>
             <h3>Sign Up</h3>
             <p>

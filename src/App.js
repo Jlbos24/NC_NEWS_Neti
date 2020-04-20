@@ -7,7 +7,6 @@ import AllArticles from "./components/AllArticles";
 import BodyCard from "./components/BodyCard";
 import Users from "./components/Users";
 import ErrorHandling from "./components/ErrorHandling";
-
 import AddTopic from "./components/AddTopic";
 import * as api from "./Utils/api";
 import AddArticle from "./components/AddArticle";
@@ -19,9 +18,15 @@ class App extends Component {
     currentUser: "",
     set: false,
   };
+  componentDidMount() {
+    const currentUser = localStorage.getItem("currentUser");
 
-  setUser = (currentUser, set) => {
-    this.setState({ currentUser, set });
+    this.setState({ currentUser });
+    this.getTopics();
+  }
+
+  setUser = (set) => {
+    this.setState({ set: set });
   };
 
   getTopics = () => {
@@ -29,9 +34,6 @@ class App extends Component {
       this.setState({ topics });
     });
   };
-  componentDidMount() {
-    this.getTopics();
-  }
 
   addTopic = (topic) => {
     this.setState((currentState) => {
@@ -56,6 +58,7 @@ class App extends Component {
         ) : (
           ""
         )}
+
         <Router className="routermain">
           <AddTopic path="/addtopics" addTopic={this.addTopic} />
           <Users path="/" setUser={this.setUser} />
